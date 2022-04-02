@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     private static readonly float[] brickXPositions = {-1.95f, -1.3f, -0.65f, 0, 0.65f, 1.3f, 1.95f};
     private static readonly float[] brickYPositions = {2.375f, 2.13f, 1.885f, 1.64f, 1.395f, 1.15f,0.905f};
     [SerializeField] private GameObject brick;
+    [SerializeField] private Transform _brickContainer;
     private LevelSO _currentLevel;
     private BrickData _currentBricksData;
     
@@ -41,9 +42,9 @@ public class LevelManager : MonoBehaviour
                     if (_currentLevel.LevelLayout[i].rows[j].row[k]!=0)
                     {
                         BrickController brickController = 
-                            Instantiate(brick, 
+                            Instantiate(brick,
                                 new Vector3(brickXPositions[k], brickYPositions[j], 0),
-                                Quaternion.identity).GetComponent<BrickController>();
+                                Quaternion.identity,_brickContainer).GetComponent<BrickController>();
                         
                         brickController.SetUp(_currentBricksData.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
                     }
