@@ -16,7 +16,7 @@ MonoBehaviour:
   - Color: {r: 0.16080421, g: 0.9622642, b: 0.049928807, a: 1}
     Level: 1
     Points: 10
-    powerUpProb: 0
+    powerUpProb: 100
   - Color: {r: 0, g: 0.24642372, b: 1, a: 1}
     Level: 2
     Points: 15

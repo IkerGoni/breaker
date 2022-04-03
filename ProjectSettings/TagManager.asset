@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - DeadArea
+  - Powerup
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - Ball
   - Water
   - UI
-  - 
-  - 
+  - PowerUp
+  - Player
   - 
   - 
   - 

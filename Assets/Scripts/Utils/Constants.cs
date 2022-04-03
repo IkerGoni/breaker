@@ -24,14 +24,14 @@ public static class Constants
     public static string START_GAME = "StartGame";
     public static string NEW_BALL = "NewBall";
     public static string NEW_BALL_COUNTDOWN = "NewBallCountdown";
-
-
-
-
+    public static string ACTIVATEPOWERUP = "ActivatePowerUp";
+    public static string DROPPOWERUP = "DropPowerup";
 
     //Event params
     public const string POINTS = "Points";
     public const string GAMEOBJECT = "GameOject";
     public static string LEVEL = "Level";
     public static string LIVES = "Lives";
+    public static string POWERUPTYPE = "PowerupType";
+    public static string POSITION = "Position";
 }

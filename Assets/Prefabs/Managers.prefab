@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8314218317315901682}
   - component: {fileID: 6937268791808451228}
   - component: {fileID: 1957137447}
+  - component: {fileID: 1957137453}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MonoBehaviour:
   ball: {fileID: 3535079867402862692, guid: c1a28f7ec597f4379a1332571c3df78e, type: 3}
   levels:
   - {fileID: 11400000, guid: 17db42b0657ed405ba8099506a86ad85, type: 2}
-  - {fileID: 11400000, guid: 9ed8b3404abf6489d8242ba9daa2355e, type: 2}
+  - {fileID: 11400000, guid: 0bb0a0a56d29246c3b3ee91f2c5759db, type: 2}
   brickDatas:
   - {fileID: 11400000, guid: 3fe21d4eca76341c1a339b7eb5ac19d4, type: 2}
 --- !u!114 &8314218317315901682
@@ -97,6 +98,8 @@ MonoBehaviour:
     Size: 3
   - prefab: {fileID: 4631747263110614970, guid: 30eae2e12d3b947b9bca3db19910c0a4, type: 3}
     Size: 49
+  - prefab: {fileID: 2720360666867540259, guid: eba5b3af7395440a6a5f9344ae669e8f, type: 3}
+    Size: 3
 --- !u!114 &1957137447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,3 +122,18 @@ MonoBehaviour:
   level: {fileID: 0}
   lives: {fileID: 0}
   countdownText: {fileID: 0}
+--- !u!114 &1957137453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314218317315901686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ad30537e19743a081910ae8dd8c73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupPrefab: {fileID: 2720360666867540259, guid: eba5b3af7395440a6a5f9344ae669e8f, type: 3}
+  GamePowerups:
+  - {fileID: 11400000, guid: 039efaf0853484e568c06f1bc53cec34, type: 2}
