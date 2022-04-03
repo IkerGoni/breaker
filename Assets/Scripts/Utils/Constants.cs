@@ -26,6 +26,8 @@ public static class Constants
     public static string NEW_BALL_COUNTDOWN = "NewBallCountdown";
     public static string ACTIVATEPOWERUP = "ActivatePowerUp";
     public static string DROPPOWERUP = "DropPowerup";
+    public static string LIVE_LOST = "LiveLost";
+
 
     //Event params
     public const string POINTS = "Points";

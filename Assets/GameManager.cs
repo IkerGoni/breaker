@@ -102,13 +102,16 @@ public class GameManager : MonoBehaviour
         } 
     }
 
-    private void ModifyLives(int mod)
+    private void ModifyLives(int livesToAdd)
     {
-        _playerLives += mod;
+        _playerLives += livesToAdd;
         
         Dictionary<string, object> eventData = new Dictionary<string, object>();
         eventData.Add(Constants.LIVES,_playerLives);
         EventManager.TriggerEvent(Constants.LIVES_MODIFIED, eventData);
+        
+        if(livesToAdd == -1)
+            EventManager.TriggerEvent(Constants.LIVE_LOST);
 
         if (_playerLives == 0)
         {
