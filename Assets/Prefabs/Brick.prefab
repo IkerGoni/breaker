@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 1025877695}
   m_Layer: 0
   m_Name: Brick
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,8 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e22405c833940f7a43b795b57ae82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _renderer: {fileID: 4531560878672276356}
   _hitsText: {fileID: 2613064841595501292}
+  _renderer: {fileID: 4531560878672276356}
 --- !u!50 &1025877695
 Rigidbody2D:
   serializedVersion: 4

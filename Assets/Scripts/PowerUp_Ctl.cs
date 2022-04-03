@@ -8,13 +8,13 @@ public class PowerUp_Ctl : MonoBehaviour
 {
     private PowerupSO data;
     [SerializeField] private TMP_Text nameText;
-    [SerializeField] private Rigidbody2D rigidbody2D;
+    [SerializeField] private Rigidbody2D _rigidbody2D;
     
     public void Setup(PowerupSO powerUpData)
     {
         data = powerUpData;
         nameText.text = powerUpData.DisplayName;
-        rigidbody2D.velocity = new Vector2(0, -data.moveSpeed);
+        _rigidbody2D.velocity = new Vector2(0, -data.moveSpeed);
 
     }
     

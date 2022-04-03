@@ -65,10 +65,11 @@ MonoBehaviour:
   player: {fileID: 0}
   ball: {fileID: 3535079867402862692, guid: c1a28f7ec597f4379a1332571c3df78e, type: 3}
   levels:
-  - {fileID: 11400000, guid: 17db42b0657ed405ba8099506a86ad85, type: 2}
+  - {fileID: 11400000, guid: 042641684aa3649cdac42c3cd45a1d53, type: 2}
   - {fileID: 11400000, guid: 0bb0a0a56d29246c3b3ee91f2c5759db, type: 2}
   brickDatas:
   - {fileID: 11400000, guid: 3fe21d4eca76341c1a339b7eb5ac19d4, type: 2}
+  ballContainer: {fileID: 0}
 --- !u!114 &8314218317315901682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,4 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupPrefab: {fileID: 2720360666867540259, guid: eba5b3af7395440a6a5f9344ae669e8f, type: 3}
   GamePowerups:
+  - {fileID: 11400000, guid: 5bd33b269cfaf4874bd589ab41543807, type: 2}
   - {fileID: 11400000, guid: 039efaf0853484e568c06f1bc53cec34, type: 2}
+  powerupContainer: {fileID: 0}

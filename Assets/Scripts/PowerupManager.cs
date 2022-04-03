@@ -10,13 +10,20 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private List<PowerupSO> GamePowerups = new List<PowerupSO>();
     private Dictionary<PowerType, PowerupSO> powerups = new Dictionary<PowerType, PowerupSO>();
     private List<GameObject> activePowerUpsGameObjects = new List<GameObject>();
+
+    private Coroutine maxPowerTimer;
+
+    [SerializeField] private Transform powerupContainer;
     private void Start()
     {
         BuildPowerupDict();
         EventManager.StartListening(Constants.ACTIVATEPOWERUP, ActivatePowerup);
         EventManager.StartListening(Constants.DROPPOWERUP, DropPowerup);
         EventManager.StartListening(Constants.LIVE_LOST, RemoveAllActivePowerupObjects);
+        EventManager.StartListening(Constants.POWERUPLOST, RemovePowerUpFromField);
+
     }
+
     private void OnDestroy()
     {
         EventManager.StopListening(Constants.ACTIVATEPOWERUP, ActivatePowerup);
@@ -36,7 +43,7 @@ public class PowerupManager : MonoBehaviour
     {
         Vector3 pos = (Vector3) obj[Constants.POSITION];
         PowerupSO randomPowerup = GamePowerups[Random.Range(0, GamePowerups.Count)];
-        GameObject activePowerupObject = PoolManager.GetObjectFromPool(powerupPrefab, pos, Quaternion.identity, null);
+        GameObject activePowerupObject = PoolManager.GetObjectFromPool(powerupPrefab, pos, Quaternion.identity, powerupContainer);
         activePowerupObject.GetComponent<PowerUp_Ctl>().Setup(randomPowerup);
         activePowerUpsGameObjects.Add(activePowerupObject);
     }
@@ -51,15 +58,37 @@ public class PowerupManager : MonoBehaviour
             case PowerType.ExtraBall:
                 ExtraBall();
                 break;
+            case PowerType.MaxPower:
+                MaxPower();
+                break;
             default:
                 // code block
                 break;
         }
-        
+
+        RemovePowerUpFromField(obj);
+    }
+    
+    private void RemovePowerUpFromField(Dictionary<string, object> obj)
+    {
         GameObject gameobj = (GameObject) obj[Constants.GAMEOBJECT];
         activePowerUpsGameObjects.Remove(gameobj);
-        PoolManager.ReturnObjectToPool(powerupPrefab.GetInstanceID(),gameobj);
+        PoolManager.ReturnObjectToPool(powerupPrefab.GetInstanceID(),gameobj);    
     }
+    private void MaxPower()
+    {
+        Ball_Ctl.ballPower = 99;
+        if(maxPowerTimer!=null)
+            StopCoroutine(maxPowerTimer);
+        maxPowerTimer = StartCoroutine(MaxPowerTimer());
+    }
+
+    IEnumerator MaxPowerTimer()
+    {
+        yield return new WaitForSeconds(powerups[PowerType.MaxPower].EffectLengh);
+        Ball_Ctl.ballPower = 1;
+    }
+
     private void RemoveAllActivePowerupObjects(Dictionary<string, object> obj)
     {
         for (int i = activePowerUpsGameObjects.Count-1; i >= 0; i--)

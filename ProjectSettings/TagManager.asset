@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - DeadArea
   - Powerup
+  - Brick
   layers:
   - Default
   - TransparentFX

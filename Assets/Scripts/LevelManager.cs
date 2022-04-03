@@ -49,6 +49,10 @@ public class LevelManager : MonoBehaviour
 
     private void RestartLevel(Dictionary<string, object> obj)
     {
+        for (int i = 0; i < _bricksLeftInLevel.Count; i++)
+        {
+            PoolManager.ReturnObjectToPool(brick.GetInstanceID(),_bricksLeftInLevel[i]);
+        }
         _bricksLeftInLevel.Clear();
         CreateLevelLayout();
     }

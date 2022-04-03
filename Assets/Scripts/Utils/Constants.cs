@@ -27,6 +27,7 @@ public static class Constants
     public static string ACTIVATEPOWERUP = "ActivatePowerUp";
     public static string DROPPOWERUP = "DropPowerup";
     public static string LIVE_LOST = "LiveLost";
+    public static string POWERUPLOST = "PowerUpLost";
 
 
     //Event params

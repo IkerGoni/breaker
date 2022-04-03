@@ -28,7 +28,8 @@ public class BrickController : MonoBehaviour
 
     private void ProccessHit()
     {
-        _hitsLeft--;
+        _hitsLeft -= Ball_Ctl.ballPower;
+        
         if (_hitsLeft <= 0)
             HandleBrickDestroy();
         else

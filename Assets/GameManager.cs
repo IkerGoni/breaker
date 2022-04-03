@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<LevelSO> levels = new List<LevelSO>();
     [SerializeField] private List<BrickData> brickDatas = new List<BrickData>();
 
+    [Header("Containers")] 
+    [SerializeField] private Transform ballContainer;
 
     //player stats
     private int _currentPlayerLevel = 1;
@@ -132,7 +134,6 @@ public class GameManager : MonoBehaviour
     private void NewBall(Dictionary<string, object> obj = null)
     {
         _ballsInPlay++;
-        ballsInGame.Add(PoolManager.GetObjectFromPool(ball, Vector3.zero, Quaternion.identity, null));
-        
+        ballsInGame.Add(PoolManager.GetObjectFromPool(ball, Vector3.zero, Quaternion.identity, ballContainer));
     }
 }

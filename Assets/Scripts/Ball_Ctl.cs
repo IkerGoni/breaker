@@ -4,6 +4,7 @@ using UnityEngine;
 public class Ball_Ctl : MonoBehaviour
 {
     public GameObject prefab;
+    public static int ballPower = 1;
     public float MinY_velocity;
     [SerializeField] private Rigidbody2D _rigidbody2D;
 
@@ -42,7 +43,9 @@ public class Ball_Ctl : MonoBehaviour
             float offset = collider.transform.position.x - transform.position.x;
             ModifyDirection(offset);
         }
-        else if (collider.gameObject.CompareTag(Constants.TAG_DEAD_AREA))
+
+        return;
+    //    else if (collider.gameObject.CompareTag(Constants.TAG_DEAD_AREA))
         {
             Dictionary<string, object> eventData = new Dictionary<string, object>();
             eventData.Add(Constants.GAMEOBJECT, this.gameObject);
