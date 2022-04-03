@@ -43,9 +43,7 @@ public class Ball_Ctl : MonoBehaviour
             float offset = collider.transform.position.x - transform.position.x;
             ModifyDirection(offset);
         }
-
-        return;
-    //    else if (collider.gameObject.CompareTag(Constants.TAG_DEAD_AREA))
+        else if (collider.gameObject.CompareTag(Constants.TAG_DEAD_AREA))
         {
             Dictionary<string, object> eventData = new Dictionary<string, object>();
             eventData.Add(Constants.GAMEOBJECT, this.gameObject);

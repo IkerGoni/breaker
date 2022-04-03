@@ -16,4 +16,4 @@ MonoBehaviour:
   DisplayName: M
   EffectLengh: 5
   modAmount: 99
-  moveSpeed: 5
+  moveSpeed: 1.5
