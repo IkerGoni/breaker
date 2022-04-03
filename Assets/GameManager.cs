@@ -46,9 +46,16 @@ public class GameManager : MonoBehaviour
     
     private void BallDestroyed(Dictionary<string, object> obj)
     {
+        GameObject ballObject = (GameObject)obj[Constants.GAMEOBJECT];
+        PoolManager.ReturnObjectToPool(ball.GetInstanceID(), ballObject);
+
+        LoseLive();
+
         _ballsInPlay--;
-        if (_ballsInPlay <= 0) //remove live restart level or gameover
-            LoseLive();
+        if (_ballsInPlay <= 0)
+        {
+            Debug.Log("spawn new ball");
+        } 
     }
 
     private void LoseLive()
@@ -72,7 +79,10 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            _ballsInPlay++;
             NewBall();
+        }
     }
 }

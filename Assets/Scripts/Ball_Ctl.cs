@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball_Ctl : MonoBehaviour
@@ -44,8 +45,9 @@ public class Ball_Ctl : MonoBehaviour
         }
         else if (collider.gameObject.CompareTag(Constants.TAG_DEAD_AREA))
         {
-            EventManager.TriggerEvent(Constants.BALL_DESTROYED,null);
-            PoolManager.ReturnObjectToPool(prefab.GetInstanceID(), this.gameObject);
+            Dictionary<string, object> eventData = new Dictionary<string, object>();
+            eventData.Add(Constants.GAMEOBJECT, this.gameObject);
+            EventManager.TriggerEvent(Constants.BALL_DESTROYED, eventData);
         }
     }
 
