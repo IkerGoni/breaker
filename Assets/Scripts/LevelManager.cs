@@ -24,6 +24,18 @@ public class LevelManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        EventManager.StartListening(Constants.BRICK_DESTROYED, BrickDestroyed);
+
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.StopListening(Constants.BRICK_DESTROYED, BrickDestroyed);
+
+    }
+
     public void StartLevel(LevelSO levelData, BrickData brickData)
     {
          _currentLevel = levelData;
@@ -42,17 +54,23 @@ public class LevelManager : MonoBehaviour
                     if (_currentLevel.LevelLayout[i].rows[j].row[k]!=0)
                     {
                         BrickController brickController = 
-                            Instantiate(brick,
+                            PoolManager.GetObjectFromPool(brick, 
                                 new Vector3(brickXPositions[k], brickYPositions[j], 0),
-                                Quaternion.identity,_brickContainer).GetComponent<BrickController>();
+                                Quaternion.identity, _brickContainer).GetComponent<BrickController>();
                         
                         brickController.SetUp(_currentBricksData.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
                     }
                 }
             }
         }
+        
     }
 
+    private void BrickDestroyed(Dictionary<string, object> obj)
+    {
+        GameObject gameObject = (GameObject)obj[Constants.GAMEOBJECT];
+        PoolManager.ReturnObjectToPool(brick.GetInstanceID(), gameObject);
+    }
     // Update is called once per frame
     void Update()
     {

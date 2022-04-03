@@ -38,9 +38,7 @@ public class BrickController : MonoBehaviour
     {
         Dictionary<string, object> eventData = new Dictionary<string, object>();
         eventData.Add(Constants.POINTS, _points);
+        eventData.Add(Constants.GAMEOBJECT, this.gameObject);
         EventManager.TriggerEvent(Constants.BRICK_DESTROYED, eventData);
-        
-        //TODO use pooling
-        Destroy(this.gameObject);
     }
 }

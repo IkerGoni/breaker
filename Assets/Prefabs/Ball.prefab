@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3535079866856984657}
   - component: {fileID: 3535079866856984652}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BallRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3535079867402862693}
   - component: {fileID: 381923260}
   - component: {fileID: 381923259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -128,9 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9902fca8fc2a48ec9c25d8ccab96780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 3535079867402862692}
   MinY_velocity: 1.8
   _rigidbody2D: {fileID: 381923260}
-  InitForce: 100
+  InitForce: 200
 --- !u!50 &381923260
 Rigidbody2D:
   serializedVersion: 4

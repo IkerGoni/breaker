@@ -3,14 +3,15 @@ using UnityEngine;
 public class Ball_Ctl : MonoBehaviour
 {
 
+    public GameObject prefab;
     public float MinY_velocity;
     [SerializeField] private Rigidbody2D _rigidbody2D;
 
     public float InitForce;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        _rigidbody2D.AddForce(new Vector2(-1,-1)*InitForce);
+        SetStartValues();
     }
 
     private void FixedUpdate ()
@@ -18,6 +19,13 @@ public class Ball_Ctl : MonoBehaviour
         ForceMinYVelocity();
     }
 
+    private void SetStartValues()
+    {
+        transform.position = Vector3.zero;
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.AddForce(new Vector2(-1,-1)*InitForce);
+    }
+    
     void ForceMinYVelocity()
     {
         if (_rigidbody2D.velocity.y > 0 && _rigidbody2D.velocity.y < MinY_velocity)
@@ -33,12 +41,12 @@ public class Ball_Ctl : MonoBehaviour
         {
             float offset = collider.transform.position.x - transform.position.x;
             ModifyDirection(offset);
-
         }
-
-        //float x = Random.Range(-.5f,.5f);
-        //Vector2 velocity = new Vector2((transform.position.x - col.transform.position.x) + x, transform.position.y - col.transform.position.y);
-        //rb.velocity = velocity.normalized * speed;
+        else if (collider.gameObject.CompareTag(Constants.TAG_DEAD_AREA))
+        {
+            EventManager.TriggerEvent(Constants.BALL_DESTROYED,null);
+            PoolManager.ReturnObjectToPool(prefab.GetInstanceID(), this.gameObject);
+        }
     }
 
     void ModifyDirection(float offSetToPaddle)

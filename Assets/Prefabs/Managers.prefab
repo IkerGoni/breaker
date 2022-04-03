@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8314218317315901680}
   - component: {fileID: 8314218317315901683}
   - component: {fileID: 8314218317315901682}
+  - component: {fileID: 6937268791808451228}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -59,6 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05166c88ebe7e47619ff9da0129b7d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ball: {fileID: 3535079867402862692, guid: c1a28f7ec597f4379a1332571c3df78e, type: 3}
   levels:
   - {fileID: 11400000, guid: 7339525b9b01e48d2b35a5e679288423, type: 2}
   brickDatas:
@@ -75,3 +78,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0307e4ecd6d4127b1fad05953fb21b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6937268791808451228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314218317315901686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f98afc8a8c4499e814ca84f374e124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectPoolList:
+  - prefab: {fileID: 3535079867402862692, guid: c1a28f7ec597f4379a1332571c3df78e, type: 3}
+    Size: 3
+  - prefab: {fileID: 4631747263110614970, guid: 30eae2e12d3b947b9bca3db19910c0a4, type: 3}
+    Size: 49
