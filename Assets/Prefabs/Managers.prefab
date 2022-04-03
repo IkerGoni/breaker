@@ -109,7 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2f5042dfb254f2d9c278773349a2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startGameButton: {fileID: 0}
+  restartLevelButton: {fileID: 0}
   inGamePanel: {fileID: 0}
+  startGamePanel: {fileID: 0}
+  wonGamePanel: {fileID: 0}
+  gameOverPanel: {fileID: 0}
   score: {fileID: 0}
   level: {fileID: 0}
   lives: {fileID: 0}
+  countdownText: {fileID: 0}

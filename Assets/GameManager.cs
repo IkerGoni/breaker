@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject ball;
+    private List<GameObject> ballsInGame = new List<GameObject>();
     [SerializeField] private List<LevelSO> levels = new List<LevelSO>();
     [SerializeField] private List<BrickData> brickDatas = new List<BrickData>();
 
@@ -15,14 +16,12 @@ public class GameManager : MonoBehaviour
     private int _currentPlayerLevel = 1;
     private int _playerScore;
     private int _playerLives = 3;
-    private int _ballsInPlay = 1;
+    private int _ballsInPlay = 0;
 
     private void Start()
-    {
-        LevelManager.Instance.StartLevel(levels[_currentPlayerLevel-1], brickDatas[0]);
+    { 
         SubscribeToEvents();
     }
-
     private void OnDestroy()
     {
         UnSubscribeToEvents();
@@ -33,6 +32,19 @@ public class GameManager : MonoBehaviour
         EventManager.StartListening(Constants.BRICK_DESTROYED, BrickDestroyed);
         EventManager.StartListening(Constants.BALL_DESTROYED, BallDestroyed);
         EventManager.StartListening(Constants.LEVEL_COMPLETED, EvaluateGameCompleted);
+        EventManager.StartListening(Constants.START_GAME, Starlevel);
+        EventManager.StartListening(Constants.RESTART_LEVEL, RestartLevel);
+        EventManager.StartListening(Constants.NEW_BALL, NewBall);
+    }
+
+    private void Starlevel(Dictionary<string, object> obj)
+    {
+        LevelManager.Instance.StartLevel(levels[_currentPlayerLevel-1], brickDatas[0]);
+    }
+
+    private void RestartLevel(Dictionary<string, object> obj)
+    {
+        ModifyLives(+3);
     }
 
     private void EvaluateGameCompleted(Dictionary<string, object> obj)
@@ -40,12 +52,18 @@ public class GameManager : MonoBehaviour
         _currentPlayerLevel++;
         
         if(_currentPlayerLevel> levels.Count)
-            Debug.Log("Won the game");
+            PlayerWins();
         else
-        {
             LoadNextLevel();
+    }
+
+    private void PlayerWins()
+    {
+        EventManager.TriggerEvent(Constants.WON_GAME);
+        for (int i = 0; i < ballsInGame.Count; i++)
+        {
+            PoolManager.ReturnObjectToPool(ball.GetInstanceID(),ballsInGame[i]);
         }
-       
     }
 
     private void LoadNextLevel()
@@ -76,32 +94,30 @@ public class GameManager : MonoBehaviour
     {
         GameObject ballObject = (GameObject)obj[Constants.GAMEOBJECT];
         PoolManager.ReturnObjectToPool(ball.GetInstanceID(), ballObject);
-
-        LoseLive();
-
+        
         _ballsInPlay--;
         if (_ballsInPlay <= 0)
         {
-            Debug.Log("spawn new ball");
+            ModifyLives(-1);
         } 
     }
 
-    private void LoseLive()
+    private void ModifyLives(int mod)
     {
-        _playerLives--;
+        _playerLives += mod;
         
+        Dictionary<string, object> eventData = new Dictionary<string, object>();
+        eventData.Add(Constants.LIVES,_playerLives);
+        EventManager.TriggerEvent(Constants.LIVES_MODIFIED, eventData);
+
         if (_playerLives == 0)
         {
             EventManager.TriggerEvent(Constants.GAMEOVER);
-
             GameOver();
         }
         else
         {
-            Dictionary<string, object> eventData = new Dictionary<string, object>();
-            eventData.Add(Constants.LIVES,_playerLives);
-            EventManager.TriggerEvent(Constants.LIVES_MODIFIED, eventData);
-
+            EventManager.TriggerEvent(Constants.NEW_BALL_COUNTDOWN);
         }
     }
 
@@ -110,17 +126,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("GAMEOVER");
     }
     
-    private void NewBall()
+    private void NewBall(Dictionary<string, object> obj = null)
     {
-        PoolManager.GetObjectFromPool(ball, Vector3.zero, Quaternion.identity, null);
+        _ballsInPlay++;
+        ballsInGame.Add(PoolManager.GetObjectFromPool(ball, Vector3.zero, Quaternion.identity, null));
         
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            _ballsInPlay++;
-            NewBall();
-        }
     }
 }

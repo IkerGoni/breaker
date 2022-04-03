@@ -19,6 +19,12 @@ public static class Constants
     public const string LIVES_MODIFIED = "LivesModified";
     public static string SCORE_MODIFIED = "ScoreModified";
     public static string LEVEL_COMPLETED = "LevelCompleted";
+    public static string RESTART_LEVEL = "RestartLevel";
+    public static string WON_GAME = "GameWon";
+    public static string START_GAME = "StartGame";
+    public static string NEW_BALL = "NewBall";
+    public static string NEW_BALL_COUNTDOWN = "NewBallCountdown";
+
 
 
 
@@ -28,6 +34,4 @@ public static class Constants
     public const string GAMEOBJECT = "GameOject";
     public static string LEVEL = "Level";
     public static string LIVES = "Lives";
-
-
 }

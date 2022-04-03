@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     private LevelSO _currentLevel;
     private BrickData _currentBricksData;
 
-    private int _bricksLeftInLevel;
+    private List<GameObject> _bricksLeftInLevel = new List<GameObject>();
     
     void Awake()
     {
@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         EventManager.StartListening(Constants.BRICK_DESTROYED, BrickDestroyed);
-
+        EventManager.StartListening(Constants.RESTART_LEVEL, RestartLevel);
     }
 
     private void OnDestroy()
@@ -40,12 +40,19 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel(LevelSO levelData, BrickData brickData)
     {
-        _bricksLeftInLevel = 0;
+        
+         _bricksLeftInLevel.Clear();
          _currentLevel = levelData;
          _currentBricksData = brickData;
          CreateLevelLayout();
     }
 
+    private void RestartLevel(Dictionary<string, object> obj)
+    {
+        _bricksLeftInLevel.Clear();
+        CreateLevelLayout();
+    }
+    
     private void CreateLevelLayout()
     {
         for (int i = 0; i < _currentLevel.LevelLayout.Length; i++)
@@ -62,7 +69,7 @@ public class LevelManager : MonoBehaviour
                                 Quaternion.identity, _brickContainer).GetComponent<BrickController>();
                         
                         brickController.SetUp(_currentBricksData.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
-                        _bricksLeftInLevel++;
+                        _bricksLeftInLevel.Add(brickController.gameObject);
                     }
                 }
             }
@@ -75,14 +82,9 @@ public class LevelManager : MonoBehaviour
         GameObject gameObject = (GameObject)obj[Constants.GAMEOBJECT];
         PoolManager.ReturnObjectToPool(brick.GetInstanceID(), gameObject);
 
-        _bricksLeftInLevel--;
+        _bricksLeftInLevel.Remove(gameObject);
         
-        if(_bricksLeftInLevel <=0)
+        if(_bricksLeftInLevel.Count == 0)
             EventManager.TriggerEvent(Constants.LEVEL_COMPLETED);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

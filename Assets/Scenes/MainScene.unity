@@ -134,6 +134,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &193481715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 193481715, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+  m_PrefabInstance: {fileID: 8692208719657815072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &237637561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 237637561, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+  m_PrefabInstance: {fileID: 8692208719657815072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &237924350
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +315,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &558956028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 558956028, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+  m_PrefabInstance: {fileID: 8692208719657815072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &708910712
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +371,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902574613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7733512954846551208, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+  m_PrefabInstance: {fileID: 8692208719657815072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &920977719
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +417,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1937306922509403069, guid: 30f94f26389e746f583c6aaebff152a0, type: 3}
   m_PrefabInstance: {fileID: 1937306922699119815}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1067851209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1067851209, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+  m_PrefabInstance: {fileID: 8692208719657815072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1242902503 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8692208718484661191, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
@@ -390,6 +433,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1957137450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8314218317315901680, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+  m_PrefabInstance: {fileID: 8314218318067615773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cefa0b20ca894da3ba5516c0cfd0c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2080324579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2373542722239403768, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+  m_PrefabInstance: {fileID: 8692208719657815072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2104942459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1937306922509403068, guid: 30f94f26389e746f583c6aaebff152a0, type: 3}
@@ -604,6 +663,30 @@ PrefabInstance:
       propertyPath: inGamePanel
       value: 
       objectReference: {fileID: 365213239}
+    - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+      propertyPath: wonGamePanel
+      value: 
+      objectReference: {fileID: 1067851209}
+    - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+      propertyPath: countdownText
+      value: 
+      objectReference: {fileID: 558956028}
+    - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 237637561}
+    - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+      propertyPath: startGamePanel
+      value: 
+      objectReference: {fileID: 2080324579}
+    - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+      propertyPath: startGameButton
+      value: 
+      objectReference: {fileID: 902574613}
+    - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+      propertyPath: restartLevelButton
+      value: 
+      objectReference: {fileID: 193481715}
     - target: {fileID: 8314218317315901680, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
       propertyPath: _brickContainer
       value: 
@@ -669,18 +752,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8692208718484661191, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
-      propertyPath: m_text
-      value: 'LEVEL: 1'
+    - target: {fileID: 558956026, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8692208719258239300, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
-      propertyPath: m_text
-      value: 'LIVES: 3'
+    - target: {fileID: 558956027, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
       objectReference: {fileID: 0}
-    - target: {fileID: 8692208719704051237, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
-      propertyPath: m_text
-      value: 'SCORE: 0'
+    - target: {fileID: 558956027, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 558956028, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+      propertyPath: m_fontSize
+      value: 268.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 558956028, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 268.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733512954846551208, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1957137450}
     - target: {fileID: 8692208719755294813, guid: 2c51dbcba65a44cfb99f5db58d2a7220, type: 3}
       propertyPath: m_Name
       value: UI Canvas
