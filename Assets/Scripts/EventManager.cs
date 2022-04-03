@@ -56,7 +56,7 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    public static void TriggerEvent(string eventName, Dictionary<string, object> message) {
+    public static void TriggerEvent(string eventName, Dictionary<string, object> message = null) {
         Action<Dictionary<string, object>> thisEvent = null;
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
             thisEvent.Invoke(message);

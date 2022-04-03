@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform _brickContainer;
     private LevelSO _currentLevel;
     private BrickData _currentBricksData;
+
+    private int _bricksLeftInLevel;
     
     void Awake()
     {
@@ -38,6 +40,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel(LevelSO levelData, BrickData brickData)
     {
+        _bricksLeftInLevel = 0;
          _currentLevel = levelData;
          _currentBricksData = brickData;
          CreateLevelLayout();
@@ -59,6 +62,7 @@ public class LevelManager : MonoBehaviour
                                 Quaternion.identity, _brickContainer).GetComponent<BrickController>();
                         
                         brickController.SetUp(_currentBricksData.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
+                        _bricksLeftInLevel++;
                     }
                 }
             }
@@ -70,6 +74,11 @@ public class LevelManager : MonoBehaviour
     {
         GameObject gameObject = (GameObject)obj[Constants.GAMEOBJECT];
         PoolManager.ReturnObjectToPool(brick.GetInstanceID(), gameObject);
+
+        _bricksLeftInLevel--;
+        
+        if(_bricksLeftInLevel <=0)
+            EventManager.TriggerEvent(Constants.LEVEL_COMPLETED);
     }
     // Update is called once per frame
     void Update()

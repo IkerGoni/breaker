@@ -12,14 +12,14 @@ public class GameManager : MonoBehaviour
 
 
     //player stats
-    private int _currentPlayerLevel;
+    private int _currentPlayerLevel = 1;
     private int _playerScore;
     private int _playerLives = 3;
     private int _ballsInPlay = 1;
 
     private void Start()
     {
-        LevelManager.Instance.StartLevel(levels[0], brickDatas[0]);
+        LevelManager.Instance.StartLevel(levels[_currentPlayerLevel-1], brickDatas[0]);
         SubscribeToEvents();
     }
 
@@ -32,7 +32,31 @@ public class GameManager : MonoBehaviour
     {
         EventManager.StartListening(Constants.BRICK_DESTROYED, BrickDestroyed);
         EventManager.StartListening(Constants.BALL_DESTROYED, BallDestroyed);
+        EventManager.StartListening(Constants.LEVEL_COMPLETED, EvaluateGameCompleted);
     }
+
+    private void EvaluateGameCompleted(Dictionary<string, object> obj)
+    {
+        _currentPlayerLevel++;
+        
+        if(_currentPlayerLevel> levels.Count)
+            Debug.Log("Won the game");
+        else
+        {
+            LoadNextLevel();
+        }
+       
+    }
+
+    private void LoadNextLevel()
+    {
+        LevelManager.Instance.StartLevel(levels[_currentPlayerLevel-1], brickDatas[0]);
+        
+        Dictionary<string, object> eventData = new Dictionary<string, object>();
+        eventData.Add(Constants.LEVEL, _currentPlayerLevel);
+        EventManager.TriggerEvent(Constants.LEVEL_MODIFIED, eventData);    
+    }
+
     private void UnSubscribeToEvents()
     {
         EventManager.StopListening(Constants.BRICK_DESTROYED, BrickDestroyed);
@@ -42,6 +66,10 @@ public class GameManager : MonoBehaviour
     private void BrickDestroyed(Dictionary<string, object> obj)
     {
         _playerScore += (int)obj[Constants.POINTS];
+        Dictionary<string, object> eventData = new Dictionary<string, object>();
+        eventData.Add(Constants.POINTS, _playerScore);
+        EventManager.TriggerEvent(Constants.SCORE_MODIFIED, eventData);
+        
     }
     
     private void BallDestroyed(Dictionary<string, object> obj)
@@ -61,10 +89,20 @@ public class GameManager : MonoBehaviour
     private void LoseLive()
     {
         _playerLives--;
+        
         if (_playerLives == 0)
+        {
+            EventManager.TriggerEvent(Constants.GAMEOVER);
+
             GameOver();
-        //else
-        //    NewBall();
+        }
+        else
+        {
+            Dictionary<string, object> eventData = new Dictionary<string, object>();
+            eventData.Add(Constants.LIVES,_playerLives);
+            EventManager.TriggerEvent(Constants.LIVES_MODIFIED, eventData);
+
+        }
     }
 
     private void GameOver()

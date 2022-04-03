@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Ball_Ctl : MonoBehaviour
 {
-
     public GameObject prefab;
     public float MinY_velocity;
     [SerializeField] private Rigidbody2D _rigidbody2D;
