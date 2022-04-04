@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6540516163073063634}
   - component: {fileID: 6540516163073063635}
   m_Layer: 0
-  m_Name: BottomDeadArea
+  m_Name: LoseBallBar
   m_TagString: DeadArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
