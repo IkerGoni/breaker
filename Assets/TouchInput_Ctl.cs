@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Utils;
 
 
@@ -26,7 +22,6 @@ public class TouchInput_Ctl : MonoBehaviour
 {
     [SerializeField] private ButtonWithStates right;
     [SerializeField] private ButtonWithStates left;
-    [SerializeField] private ButtonWithStates center;
     [SerializeField] private Transform player;
 
     public float MoveSpeed = 1f;

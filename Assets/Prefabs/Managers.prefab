@@ -58,7 +58,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7339525b9b01e48d2b35a5e679288423, type: 2}
   - {fileID: 11400000, guid: 042641684aa3649cdac42c3cd45a1d53, type: 2}
   brickDatas:
-  - {fileID: 11400000, guid: 3fe21d4eca76341c1a339b7eb5ac19d4, type: 2}
+  - {fileID: 11400000, guid: 76bbb792f84464cbeb8a04f7be92b128, type: 2}
   ballContainer: {fileID: 0}
 --- !u!114 &8314218317315901682
 MonoBehaviour:
@@ -158,6 +158,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   right: {fileID: 0}
   left: {fileID: 0}
-  center: {fileID: 0}
   player: {fileID: 0}
   MoveSpeed: 1.5

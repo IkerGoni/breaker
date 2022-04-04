@@ -9,7 +9,7 @@ public enum PowerType
     Stick
 }
 
-[CreateAssetMenu(fileName = "PowerUp", menuName = "ScriptableObjects/PowerupDataObject", order = 1)]
+[CreateAssetMenu(fileName = "PowerUp", menuName = "ScriptableObjects/PowerupDataObject", order = 3)]
 public class PowerupSO : ScriptableObject
 {
     public PowerType Type;

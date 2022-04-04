@@ -9,14 +9,14 @@ public class GameManager : MonoBehaviour
     public GameObject ball;
     private List<GameObject> ballsInGame = new List<GameObject>();
     [SerializeField] private List<LevelSO> levels = new List<LevelSO>();
-    [SerializeField] private List<BrickData> brickDatas = new List<BrickData>();
+    [SerializeField] private List<BrickDataSO> brickDatas = new List<BrickDataSO>();
 
     [Header("Containers")] 
     [SerializeField] private Transform ballContainer;
 
     //player stats
     private int _currentPlayerLevel = 1;
-    private int _playerScore;
+    private int _playerScore = 0;
     private int _playerLives = 3;
     private int _ballsInPlay = 0;
 
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Starlevel(Dictionary<string, object> obj)
     {
+        Debug.Log("startLEvel");
         LevelManager.Instance.StartLevel(levels[_currentPlayerLevel-1], brickDatas[0]);
     }
 
@@ -133,6 +134,8 @@ public class GameManager : MonoBehaviour
     
     private void NewBall(Dictionary<string, object> obj = null)
     {
+        Debug.Log("NEW_BALL");
+
         _ballsInPlay++;
         ballsInGame.Add(PoolManager.GetObjectFromPool(ball, Vector3.zero, Quaternion.identity, ballContainer));
     }

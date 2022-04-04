@@ -28,5 +28,11 @@ public class PowerUp_Ctl : MonoBehaviour
 
             EventManager.TriggerEvent(Constants.ACTIVATEPOWERUP, eventData);
         }
+        else if (collider.gameObject.CompareTag(Constants.TAG_DEAD_AREA))
+        {
+            Dictionary<string, object> eventData = new Dictionary<string, object>();
+            eventData.Add(Constants.GAMEOBJECT, this.gameObject);
+            EventManager.TriggerEvent(Constants.POWERUPLOST, eventData);
+        }
     }
 }

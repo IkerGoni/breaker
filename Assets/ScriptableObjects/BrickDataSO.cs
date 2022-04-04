@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelData", menuName = "ScriptableObjects/BrickDataObject", order = 1)]
-public class BrickData : ScriptableObject
+[CreateAssetMenu(fileName = "BrickData", menuName = "ScriptableObjects/BrickDataObject", order = 2)]
+public class BrickDataSO : ScriptableObject
 {
     [SerializeField]
-   // public LevelLayout LevelLayout;
+    // public LevelLayout LevelLayout;
     public BrickLevelData[] BrickLevelsData = new BrickLevelData[3];
 
 }

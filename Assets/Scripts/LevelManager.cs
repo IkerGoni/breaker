@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject brick;
     [SerializeField] private Transform _brickContainer;
     private LevelSO _currentLevel;
-    private BrickData _currentBricksData;
+    private BrickDataSO _currentBricksDataSo;
 
     private List<GameObject> _bricksLeftInLevel = new List<GameObject>();
     
@@ -28,6 +26,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60; //Don't feel that more is necessary in this game, and will help saving battery
+        
         EventManager.StartListening(Constants.BRICK_DESTROYED, BrickDestroyed);
         EventManager.StartListening(Constants.RESTART_LEVEL, RestartLevel);
     }
@@ -38,12 +38,11 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void StartLevel(LevelSO levelData, BrickData brickData)
+    public void StartLevel(LevelSO levelData, BrickDataSO brickDataSo)
     {
-        
          _bricksLeftInLevel.Clear();
          _currentLevel = levelData;
-         _currentBricksData = brickData;
+         _currentBricksDataSo = brickDataSo;
          CreateLevelLayout();
     }
 
@@ -72,7 +71,7 @@ public class LevelManager : MonoBehaviour
                                 new Vector3(brickXPositions[k], brickYPositions[j], 0),
                                 Quaternion.identity, _brickContainer).GetComponent<BrickController>();
                         
-                        brickController.SetUp(_currentBricksData.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
+                        brickController.SetUp(_currentBricksDataSo.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
                         _bricksLeftInLevel.Add(brickController.gameObject);
                     }
                 }

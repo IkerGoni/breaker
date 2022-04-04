@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: BricksDataDefault
-  m_EditorClassIdentifier: Assembly-CSharp::BrickData
+  m_Script: {fileID: 11500000, guid: 4f72a6bb1e3e5405fafc2f1bc26f37e7, type: 3}
+  m_Name: BrickDataDefault
+  m_EditorClassIdentifier: 
   BrickLevelsData:
-  - Color: {r: 0.16080421, g: 0.9622642, b: 0.049928807, a: 1}
+  - Color: {r: 0, g: 1, b: 0.02162838, a: 1}
     Level: 1
     Points: 10
     powerUpProb: 10
-  - Color: {r: 0, g: 0.24642372, b: 1, a: 1}
+  - Color: {r: 0, g: 0.16215563, b: 1, a: 1}
     Level: 2
     Points: 15
     powerUpProb: 15
-  - Color: {r: 1, g: 0, b: 0, a: 1}
+  - Color: {r: 1, g: 0.019788347, b: 0, a: 1}
     Level: 3
     Points: 20
     powerUpProb: 15

@@ -3,30 +3,20 @@ using UnityEngine.UI;
 
 namespace Utils
 {
-    public class ButtonWithStates : Button, IPointerDownHandler, IPointerUpHandler
+    public class ButtonWithStates : Button
     {
         public bool Pressed = false;
     
-        public void OnPointerDown(PointerEventData eventData)
+        public override void OnPointerDown(PointerEventData eventData)
         {
+            base.OnPointerDown(eventData);
             Pressed = true;
         }
  
-        public void OnPointerUp(PointerEventData eventData)
+        public override void OnPointerUp(PointerEventData eventData)
         {
+            base.OnPointerDown(eventData);
             Pressed = false;
-        }
-        public void Update()
-        {
-            if(IsPressed())
-            {
-                WhilePressed();
-            }
-        }
- 
-        public void WhilePressed()
-        {
-            //Move your guys
         }
     }
 }
