@@ -232,17 +232,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7915703064682822730, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
   m_PrefabInstance: {fileID: 7915703064855005821}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &405867876 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7915703064719673113, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
-  m_PrefabInstance: {fileID: 7915703064855005821}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,6 +440,17 @@ Transform:
   m_Father: {fileID: 1041057703}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183619530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7915703066339125313, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
+  m_PrefabInstance: {fileID: 7915703064855005821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1889558745
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +701,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7915703066339125313, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
+      propertyPath: m_text
+      value: 'LIVES: 3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915703066339125318, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.652
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915703066361517597, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
+      propertyPath: m_text
+      value: 'LEVEL: 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915703066361517602, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.652
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915703066416323022, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
+      propertyPath: m_text
+      value: 'SCORE: 0'
+      objectReference: {fileID: 0}
     - target: {fileID: 9090552370427075317, guid: 053ce4a2389ef4420a20dc30c48eb0aa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -721,7 +741,7 @@ PrefabInstance:
     - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
       propertyPath: lives
       value: 
-      objectReference: {fileID: 405867876}
+      objectReference: {fileID: 1183619530}
     - target: {fileID: 1957137447, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
       propertyPath: score
       value: 
@@ -770,6 +790,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2104942459}
+    - target: {fileID: 1957137454, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
+      propertyPath: MoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8314218317315901680, guid: 1660191c8e8674d738ed8041201684a1, type: 3}
       propertyPath: _brickContainer
       value: 
