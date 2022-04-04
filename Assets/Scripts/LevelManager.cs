@@ -66,13 +66,13 @@ public class LevelManager : MonoBehaviour
                 {
                     if (_currentLevel.LevelLayout[i].rows[j].row[k]!=0)
                     {
-                        BrickController brickController = 
+                        Brick_Ctl brickCtl = 
                             PoolManager.GetObjectFromPool(brick, 
                                 new Vector3(brickXPositions[k], brickYPositions[j], 0),
-                                Quaternion.identity, _brickContainer).GetComponent<BrickController>();
+                                Quaternion.identity, _brickContainer).GetComponent<Brick_Ctl>();
                         
-                        brickController.SetUp(_currentBricksDataSo.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
-                        _bricksLeftInLevel.Add(brickController.gameObject);
+                        brickCtl.SetUp(_currentBricksDataSo.BrickLevelsData[_currentLevel.LevelLayout[i].rows[j].row[k]-1]);
+                        _bricksLeftInLevel.Add(brickCtl.gameObject);
                     }
                 }
             }
@@ -82,10 +82,10 @@ public class LevelManager : MonoBehaviour
 
     private void BrickDestroyed(Dictionary<string, object> obj)
     {
-        GameObject gameObject = (GameObject)obj[Constants.GAMEOBJECT];
-        PoolManager.ReturnObjectToPool(brick.GetInstanceID(), gameObject);
+        GameObject gameObj = (GameObject)obj[Constants.GAMEOBJECT];
+        PoolManager.ReturnObjectToPool(brick.GetInstanceID(), gameObj);
 
-        _bricksLeftInLevel.Remove(gameObject);
+        _bricksLeftInLevel.Remove(gameObj);
         
         if(_bricksLeftInLevel.Count == 0)
             EventManager.TriggerEvent(Constants.LEVEL_COMPLETED);

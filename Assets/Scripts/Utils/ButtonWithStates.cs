@@ -5,8 +5,7 @@ namespace Utils
 {
     public class ButtonWithStates : Button
     {
-        public bool Pressed = false;
-    
+        public bool Pressed;
         public override void OnPointerDown(PointerEventData eventData)
         {
             base.OnPointerDown(eventData);

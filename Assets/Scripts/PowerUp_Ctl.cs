@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,7 +13,6 @@ public class PowerUp_Ctl : MonoBehaviour
         data = powerUpData;
         nameText.text = powerUpData.DisplayName;
         _rigidbody2D.velocity = new Vector2(0, -data.moveSpeed);
-
     }
     
     void OnCollisionEnter2D(Collision2D collider)

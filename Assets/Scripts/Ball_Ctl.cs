@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Ball_Ctl : MonoBehaviour
 {
-    public GameObject prefab;
     public static int ballPower = 1;
     public float MinY_velocity;
     [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -35,7 +34,6 @@ public class Ball_Ctl : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -MinY_velocity);
     }
 
-    // Update is called once per frame
     void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag(Constants.TAG_PLAYER))

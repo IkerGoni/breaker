@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +20,6 @@ public class PowerupManager : MonoBehaviour
         EventManager.StartListening(Constants.DROPPOWERUP, DropPowerup);
         EventManager.StartListening(Constants.LIVE_LOST, RemoveAllActivePowerupObjects);
         EventManager.StartListening(Constants.POWERUPLOST, RemovePowerUpFromField);
-
     }
 
     private void OnDestroy()
@@ -29,6 +27,8 @@ public class PowerupManager : MonoBehaviour
         EventManager.StopListening(Constants.ACTIVATEPOWERUP, ActivatePowerup);
         EventManager.StopListening(Constants.DROPPOWERUP, DropPowerup);    
         EventManager.StopListening(Constants.LIVE_LOST, RemoveAllActivePowerupObjects);
+        EventManager.StopListening(Constants.POWERUPLOST, RemovePowerUpFromField);
+
     }
 
     private void BuildPowerupDict()

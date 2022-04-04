@@ -5,60 +5,33 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 All manager same place for ease of finding them\
+\f0\fs24 \cf0 \
+- All manager same place for ease of finding them (except ball). Personally  I like to have them on their specific GameObject based on scope/responsibilities, but went for this structure due to being a test.\
 \
-TODO\
-Remove lives done\
-UI basic done\
-Sounds skipped\
+UX decision;\
+\
+Limited the width of the play area to fit an iPhone (most used \'93thin\'94 screen ratio 9:19.5). \
+Ball collider is a bit bigger than image.\
+Bal direction changes based on where it its.\
+Even there was a requirement of using Physics, I took the freedom to impose a vertical velocity over the ball, to prevent is to move too horizontally. (Physics behavior is \'93too real\'94 for a game like this. It can cause the ball to move slow in the Y axis. On a casual/arcade game like this one, we need a minimum of Y axis movement.)\
+\
+- Included simple Brick stats scriptable object.\
+- Included simple level design scriptable object. \
+- Pool Manager (I am aware that Unity has integrated something regarding it on version 2020 but didn\'92t check it)\
+\
+\
+SKIPPED DUE TO TIME CONSTRAINS (I had to work on my current contract):\
+\
+Sounds\
 FX skipped\
-POWERUPs\
+Powerups\
 	- Bigger paddle\
-	- extra ball DONE\
 	- slow time\
-	- max power DONE\
- 	- stick?\
-\
-Level Flow done\
-Restart level done\
-Gameover done\
-Atlas Done\
-Mobile setting\
-Limits fps\
+ 	- stick to paddle\
 \
 \
-BUGS\
-\
-paddle direction change IMPROVED game mechanic\
-Paddle out of bounds FIXED\
-[FIXED] Can take powerup on countdown. -> can be improved, list can have already disabled powers\
 \
 \
-Design:\
 \
-Will limit the width of the play area to fit an iPhone (most used \'93thin\'94 screen ratio 9:19.5). Rest of the devices will show walls.\
-\
-Will use physics, but not everywhere. Physics behavior is \'93too real\'94 for a game like t	his. It can cause the ball to move slow in the Y axis. On a casual/arcade game like this one, we need a minimum of Y axis movement.\
-\
-Managers:\
-\
-LevelManager\
-Pool\
-UI\
-Player\
-\
-Controllers\
-Input\
-\
-Powerups:\
-\
-\
-Increase length\
-Stick?\
-Extra ball\
-\
-Stats based in Scriptable objects\
-\
-Make ball collider bit bigger than image for UX\
 \
 }

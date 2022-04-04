@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-public class UIMANAGER : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField] private Button startGameButton;

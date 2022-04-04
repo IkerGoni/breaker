@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BrickController : MonoBehaviour
+public class Brick_Ctl : MonoBehaviour
 {    
     [SerializeField] private TMP_Text _hitsText;
     [SerializeField] private SpriteRenderer _renderer;

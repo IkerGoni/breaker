@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -37,7 +36,6 @@ public class PoolManager : MonoBehaviour
                 poolQueue.Enqueue(obj);
             }
             objectPoolDictionary.Add(pool.prefab.GetInstanceID(), poolQueue);
-            //Debug.Log("Added " + pool.prefab.name + " with instanceID: " + pool.prefab.GetInstanceID());
         }
     }
 
