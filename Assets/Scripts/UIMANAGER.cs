@@ -70,21 +70,16 @@ public class UIMANAGER : MonoBehaviour
 
     private void StartClicked()
     {
-        Debug.Log("START CLICKED");
         startGamePanel.SetActive(false);
-        Debug.Log("START CLICKED2");
-
+        
         Dictionary<string, object> temp = new Dictionary<string, object>();
         EventManager.TriggerEvent(Constants.START_GAME,temp);
-        Debug.Log("START CLICKED3");
 
         DoCountdown();
     }
     
     private void DoCountdown(Dictionary<string, object> obj = null)
     {
-        
-        Debug.Log("DoCountdown");
         StartCoroutine(StartCountdown());
     }
     
@@ -124,8 +119,6 @@ public class UIMANAGER : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
-        Debug.Log("DoCountdown");
-
         countdownText.gameObject.SetActive(true);
         countdownText.text = "3";
         yield return wait1Seconds;

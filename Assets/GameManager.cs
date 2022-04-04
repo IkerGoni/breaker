@@ -38,10 +38,18 @@ public class GameManager : MonoBehaviour
         EventManager.StartListening(Constants.RESTART_LEVEL, RestartLevel);
         EventManager.StartListening(Constants.NEW_BALL, NewBall);
     }
+    private void UnSubscribeToEvents()
+    {
+        EventManager.StopListening(Constants.BRICK_DESTROYED, BrickDestroyed);
+        EventManager.StopListening(Constants.BALL_DESTROYED, BallDestroyed);
+        EventManager.StopListening(Constants.LEVEL_COMPLETED, EvaluateGameCompleted);
+        EventManager.StopListening(Constants.START_GAME, Starlevel);
+        EventManager.StopListening(Constants.RESTART_LEVEL, RestartLevel);
+        EventManager.StopListening(Constants.NEW_BALL, NewBall);
+    }
 
     private void Starlevel(Dictionary<string, object> obj)
     {
-        Debug.Log("startLEvel");
         LevelManager.Instance.StartLevel(levels[_currentPlayerLevel-1], brickDatas[0]);
     }
 
@@ -78,12 +86,6 @@ public class GameManager : MonoBehaviour
         EventManager.TriggerEvent(Constants.LEVEL_MODIFIED, eventData);    
     }
 
-    private void UnSubscribeToEvents()
-    {
-        EventManager.StopListening(Constants.BRICK_DESTROYED, BrickDestroyed);
-        EventManager.StopListening(Constants.BALL_DESTROYED, BallDestroyed);
-    }
-    
     private void BrickDestroyed(Dictionary<string, object> obj)
     {
         _playerScore += (int)obj[Constants.POINTS];
@@ -129,13 +131,11 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("GAMEOVER");
+        //Here wew would have some kind of global gameover logic. as we just offer infinite level restarts from UI, nothing to be found right now.
     }
     
     private void NewBall(Dictionary<string, object> obj = null)
     {
-        Debug.Log("NEW_BALL");
-
         _ballsInPlay++;
         ballsInGame.Add(PoolManager.GetObjectFromPool(ball, Vector3.zero, Quaternion.identity, ballContainer));
     }

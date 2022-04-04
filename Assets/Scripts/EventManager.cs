@@ -53,26 +53,11 @@ public class EventManager : MonoBehaviour {
     }
 
     public static void TriggerEvent(string eventName, Dictionary<string, object> message = null) {
-        Debug.Log("triggerEvent: " +eventName);
         Action<Dictionary<string, object>> thisEvent = null;
-        var arrayOfAllKeys = Instance.eventDictionary.Keys.ToArray();
-        Debug.Log("arrayOfAllKeys lenght: "+arrayOfAllKeys.Length);
-
-        for (int i = 0; i < arrayOfAllKeys.Length; i++)
-        {
-            Debug.Log("existing event: "+arrayOfAllKeys[i]);
-        }
-
-        
+      
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) 
         {
-            Debug.Log("triggerEvent2");
-            if(thisEvent == null)
-                Debug.Log("This event null");
-            
             thisEvent.Invoke(message);
-            Debug.Log("triggerEvent3");
-
         }
     }
 }

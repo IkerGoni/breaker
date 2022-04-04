@@ -53,7 +53,9 @@ public class Ball_Ctl : MonoBehaviour
 
     void ModifyDirection(float offSetToPaddle)
     {
-        if (offSetToPaddle > 0.15f && _rigidbody2D.velocity.x > 0 || offSetToPaddle < 0.15f && _rigidbody2D.velocity.x < 0)
-            _rigidbody2D.velocity = new Vector2(-_rigidbody2D.velocity.x*1.1f, _rigidbody2D.velocity.y);
+        if (offSetToPaddle > 0.15f)
+            _rigidbody2D.velocity = new Vector2(-Mathf.Abs(_rigidbody2D.velocity.x)*1.1f, _rigidbody2D.velocity.y);
+        else if(offSetToPaddle < -0.15f)
+            _rigidbody2D.velocity = new Vector2(Mathf.Abs(_rigidbody2D.velocity.x)*1.1f, _rigidbody2D.velocity.y);
     }
 }
